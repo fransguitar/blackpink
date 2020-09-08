@@ -1,0 +1,152 @@
+{% extends 'layout.html'%}
+
+
+{% block cuerpo %}
+
+{% for sglp in singproc %}
+<section class="stylish-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="single-product-slider">
+                    <img src="img/single-product-slider.jpg" alt="">
+                </div>
+                <div class="small-slider">
+                    <img src="img/small-slider.jpg" alt="">
+                    <img src="img/small-slider.jpg" alt="">
+                    <img src="img/small-slider.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="single-product-text">
+                    <h1>{{ sglp.1 }}</h1>
+                    <h2>&#36;{{ sglp.10 }}</h2>
+                    <p><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><span><i class="fa fa-star" aria-hidden="true"></i></span></p>
+                    <h6>(0 Reviews)</h6>
+                    <h3>Size</h3>
+                    <select>
+                      <option value="volvo">xs</option>
+                      <option value="saab">md</option>
+                      <option value="opel">lg</option>
+                      <option value="audi">xxl</option>
+                    </select>
+                    <div class="count_c">
+                        <div class="count">
+                            <p>2</p>
+                        </div>
+                        <div class="cart">
+                            <p>ADD TO CART</p>
+                        </div>
+                    </div>
+                    <h4><i class="fa fa-heart" aria-hidden="true"></i>Add to Wishlist</h4>
+                    <h5>Categories:<span>Dresses</span><span>Fashion</span><span>Tops</span></h5>
+                    <h5 class="tag">Tag:<span>Tops</span></h5>
+                    <h5 class="love">love it, share it!</h5>
+                    <p class="icon"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product_description">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2><span class="description">Description</span><span class="review">Reviews(0)</span></h2>
+                    <h3>Product Description</h3>
+                    <p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem  is simply dummy text of the printing and typesetting industry. </p>
+                    <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="related-products">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="bar">
+                        <h2>Related Products</h2>
+                        <img src="img/bar.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="s_product">
+                            <img src="img/t-shart.jpg" alt="">
+                            <div class="s_overlay"></div>
+                            <h2>SALE!</h2>
+                            <h3>T-SHIRT</h3>
+                            <h4><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>ADD TO CART</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="rate">
+                                    <h3>Pocket Tee</h3>
+                                    <p><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><span><i class="fa fa-star" aria-hidden="true"></i></span></p>
+                                    <h5>$250</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="s_product">
+                            <img src="img/t-shart1.jpg" alt="">
+                            <div class="s_overlay"></div>
+                            <h3>T-SHIRT</h3>
+                            <h4><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>ADD TO CART</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="rate">
+                                    <h3>Pocket Tee</h3>
+                                    <p><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><span><i class="fa fa-star" aria-hidden="true"></i></span></p>
+                                    <h5>$250</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="s_product">
+                            <img src="img/t-shart2.jpg" alt="">
+                            <div class="s_overlay"></div>
+                            <h3>T-SHIRT</h3>
+                            <h4><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>ADD TO CART</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="rate">
+                                    <h3>Pocket Tee</h3>
+                                    <p><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></p>
+                                    <h5>$250</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="s_product">
+                            <img src="img/t-shart3.jpg" alt="">
+                            <div class="s_overlay"></div>
+                            <h2>NEW!</h2>
+                            <h3>JACKET</h3>
+                            <h4><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>ADD TO CART</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="rate">
+                                    <h3>Pocket Tee</h3>
+                                    <p><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></p>
+                                    <h5>$250</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}
+
+{% endblock %}

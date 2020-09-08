@@ -1,0 +1,43 @@
+{% extends 'layout.html'%}
+
+{% block cuerpo %}
+<div class="related-products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="bar">
+                    <h2>Recomendado para ti</h2>
+                    <img alt="" src="static/img/bar1.png">
+                </div>
+            </div>
+        </div>
+        
+        <div class="product">
+            <div class="row">
+                {% for prc in productos %}
+                <div class="col-md-3">
+                    <div class="s_product">
+                        <img alt="" src="static/img/t-shart1.jpg">
+                        <div class="s_overlay"></div>
+                        <h3>T-SHIRT</h3>
+                        <h4 ><i aria-hidden="true" class="fa fa-cart-arrow-down"></i>ADD TO CART</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="rate">
+                                <a href="http://127.0.0.1:5000/singleproduct/{{ prc.0 }}"><h3>{{ prc.1 }}</h3></a>
+                                <p><i aria-hidden="true" class="fa fa-star"></i><i aria-hidden="true" class="fa fa-star"></i><i aria-hidden="true" class="fa fa-star"></i><i aria-hidden="true" class="fa fa-star"></i><span><i aria-hidden="true" class="fa fa-star"></i></span></p>
+                                <h5>{{ prc.10 }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+  
+{% endblock %}
