@@ -9,7 +9,7 @@ from flask_login import LoginManager
 app= Flask(__name__)
 
 userg=0
-
+totalf=0
 
 #app.config['SECRET_KEY'] = '7110c8ae51a4b5af97be6534caef90e4bb9bdcb3380af008f90b23a5d1616bf319bc298105da20fe'
 #login_manager = LoginManager(app)
@@ -30,13 +30,6 @@ mysql.init_app(app)
 def inicio():
     return render_template('index.html')
 
-@app.route('/cart')
-def cart():
-    if userg == 0:
-        return render_template('register.html')
-    
-    else:
-        return render_template('cart.html')    
 
 @app.route('/gopay')
 def gopay():
@@ -46,6 +39,27 @@ def gopay():
     else:
         return render_template('payment.html')
         
+@app.route('/cart/<idp>/<can>')
+def cart(idp,can):
+    if userg == 0:
+        return render_template('register.html')
+    
+    else:
+        curs = mysql.get_db().cursor()
+        curs.execute("INSERT INTO temporal VALUES (%s,%s)",(idp,can))
+        mysql.get_db().commit()
+
+    if userg != 0:
+        cursr = mysql.get_db().cursor()    
+        cursr.execute("SELECT p.id, p.nombre, t.cantidad, p.precioventa AS 'unitario' , (t.cantidad)*(p.precioventa) AS 'total'FROM temporal t,producto p WHERE t.idproducto=p.id")
+        car = cursr.fetchall()
+        cursr.execute("SELECT SUM((t.cantidad)*(p.precioventa)) AS 'total'FROM temporal t,producto p WHERE t.idproducto=p.id")
+        tl = cursr.fetchall()
+        global totalf
+        totalf=tl[0] 
+        return render_template('cart.html',lista=car,total=tl)
+
+         
     
 
 
@@ -79,6 +93,15 @@ def singleproduct(id):
     datos = cursor.fetchall()
     return render_template('single-product.html',singproc=datos)
 
+@app.route('/add_insers')
+def add_insers():
+    now = datetime.now()
+    cursor = mysql.get_db().cursor()
+    cursor.execute("INSERT ordendeenvio (fecha, idprecioenvio) VALUES (%s,%s)", (now,1))
+    mysql.get_db().commit()
+    cursor.execute("INSERT factura(fecha, idpersonal, idordenenvio, idmododepago, total, costoenvio  ) VALUES ( %s, %s, %s,%s, %s, %s)", (now,userg,1,1,totalf,9200))
+    mysql.get_db().commit()
+    return redirect(url_for('inicio'))
 
 
 @app.route('/add_contact', methods=['POST'])
@@ -109,7 +132,9 @@ def check_user():
         else:
             global userg 
             cur=mysql.get_db().cursor()
-            userg = cur.execute("SELECT id FROM persona WHERE usuario=%s AND clave=%s;",(user,psw))
+            userg = cur.execute("SELECT id FROM persona WHERE usuario=%s AND clave=%s;",(user,psw)) #intanciar el usuario 
+            cur.execute('DELETE FROM temporal')
+            mysql.get_db().commit()
             return redirect(url_for('inicio'))
             
 

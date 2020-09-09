@@ -7,11 +7,21 @@
     margin-left: -15px;
     margin-top: 150px;
 }
-
+.row2 {
+    margin-right: -15px;
+    margin-left: -15px;
+    
+}
 html, body {
     background-image: url('Girl-Style-HD-Wallpaper.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
     font-family: 'Numans', sans-serif;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 20px;
+    background: #ffffff82;
 }
