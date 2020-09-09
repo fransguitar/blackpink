@@ -2,12 +2,17 @@ from flask import Flask, render_template,url_for,redirect,request
 from flask_json import FlaskJSON, JsonError, json_response, as_json
 from flaskext.mysql import MySQL
 from datetime import datetime
+from flask_login import LoginManager
 #import json
 
 
 app= Flask(__name__)
-#json = FlaskJSON(app)
 
+userg=0
+
+
+#app.config['SECRET_KEY'] = '7110c8ae51a4b5af97be6534caef90e4bb9bdcb3380af008f90b23a5d1616bf319bc298105da20fe'
+#login_manager = LoginManager(app)
 
 #Configuracion de conexion 
 app.config['MYSQL_DATABASE_HOST'] ='localhost'
@@ -25,6 +30,24 @@ mysql.init_app(app)
 def inicio():
     return render_template('index.html')
 
+@app.route('/cart')
+def cart():
+    if userg == 0:
+        return render_template('register.html')
+    
+    else:
+        return render_template('cart.html')    
+
+@app.route('/gopay')
+def gopay():
+    if userg == 0:
+        return render_template('register.html')
+    
+    else:
+        return render_template('payment.html')
+        
+    
+
 
 @app.route('/layout')
 def layout():
@@ -38,6 +61,10 @@ def register():
 def login():
     return render_template('login.html')
 
+@app.route('/payment')
+def payment():
+    return render_template('payment.html') 
+
 @app.route('/shop')
 def shop():
     cursor = mysql.get_db().cursor()
@@ -48,9 +75,9 @@ def shop():
 @app.route('/singleproduct/<id>')
 def singleproduct(id):
     cursor = mysql.get_db().cursor()
-    cursor.execute('SELECT*FROM producto WHERE id = %s', (id))
+    cursor.execute('SELECT  id, nombre, substring(direccionimagen,17), idtipo, idtemporada, idproveedor, idtalla, cantidad, descripcion, preciocompra, precioventa FROM producto WHERE id = %s', (id))
     datos = cursor.fetchall()
-    return render_template('singleproduct.html',singproc=datos)
+    return render_template('single-product.html',singproc=datos)
 
 
 
@@ -78,13 +105,13 @@ def check_user():
         cursor = mysql.get_db().cursor()
         result=cursor.execute("SELECT correo FROM persona WHERE usuario=%s AND clave=%s;",(user,psw))
         if result == 0:
-            #flash('Username not found')
-            # Close connection
-            #cursor.close()
             return redirect(url_for('register'))
         else:
+            global userg 
+            cur=mysql.get_db().cursor()
+            userg = cur.execute("SELECT id FROM persona WHERE usuario=%s AND clave=%s;",(user,psw))
             return redirect(url_for('inicio'))
-
+            
 
 
 

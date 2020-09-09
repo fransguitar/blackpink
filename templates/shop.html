@@ -16,16 +16,18 @@
             <div class="row">
                 {% for prc in productos %}
                 <div class="col-md-3">
+                    <a href="http://127.0.0.1:5000/singleproduct/{{ prc.0 }}">
                     <div class="s_product">
-                        <img alt="" src="static/img/t-shart1.jpg">
+                        <img alt="" src="{{ prc.2 }}" >
                         <div class="s_overlay"></div>
                         <h3>T-SHIRT</h3>
-                        <h4 ><i aria-hidden="true" class="fa fa-cart-arrow-down"></i>ADD TO CART</h4>
+                        <h4 ><i aria-hidden="true" class="fa fa-cart-arrow-down"></i>Go pay</h4>
                     </div>
+                    </a>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12"> 
                             <div class="rate">
-                                <a href="http://127.0.0.1:5000/singleproduct/{{ prc.0 }}"><h3>{{ prc.1 }}</h3></a>
+                                <h3>{{ prc.1 }}</h3>
                                 <p><i aria-hidden="true" class="fa fa-star"></i><i aria-hidden="true" class="fa fa-star"></i><i aria-hidden="true" class="fa fa-star"></i><i aria-hidden="true" class="fa fa-star"></i><span><i aria-hidden="true" class="fa fa-star"></i></span></p>
                                 <h5>{{ prc.10 }}</h5>
                             </div>

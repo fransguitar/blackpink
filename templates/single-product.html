@@ -1,0 +1,153 @@
+{% extends 'layout.html'%}
+
+
+{% block cuerpo %}
+
+{% for sglp in singproc %}
+<section class="stylish-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="single-product-slider">
+                    <img src="{{ url_for('static', filename='img/shop/'+ sglp.2 ) }}" alt="" >
+                </div>
+                
+            </div>
+            <div class="col-md-7">
+                <div class="single-product-text">
+                    <h1>{{ sglp.1 }}</h1>
+                    <h2>&#36;{{ sglp.10 }}</h2>
+                    <p><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><span><i class="fa fa-star" aria-hidden="true"></i></span></p>
+                    <h6>(0 Reviews)</h6>
+                    <h3>Size</h3>
+                    <select>
+                      <option value="volvo">Unica</option>
+                      
+                    </select>
+                    <div class="count_c">
+                        <div class="count">
+                            <p>2</p>
+                        </div>
+                        <a href="{{url_for('gopay')}}">
+                        <div class="cart">
+                            <p>Go pay</p>
+                        </div>
+                        </a>
+                        <a href="{{url_for('gopay')}}">
+                            <div class="cart">
+                                <p>Añadir al carrito</p>
+                            </div>
+                            </a>
+                    </div>
+                    <h4><i class="fa fa-heart" aria-hidden="true"></i>Add to Wishlist</h4>
+                    <h5>Categories:<span>Dresses</span><span>Fashion</span><span>Tops</span></h5>
+                    <h5 class="tag">Tag:<span>Tops</span></h5>
+                    <h5 class="love">love it, share it!</h5>
+                    <p class="icon"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product_description">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2><span class="description">Description</span><span class="review">Reviews(0)</span></h2>
+                    <h3>Product Description</h3>
+                    <p>{{ sglp.8 }} </p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="related-products">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="bar">
+                        <h2>Related Products</h2>
+                        <img src="{{ url_for('static', filename='img/bar1.png') }}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="s_product">
+                            <img src="{{ url_for('static', filename='img/shop/2.jpg') }}" alt="">
+                            <div class="s_overlay"></div>
+                            <h2>SALE!</h2>
+                            <h3>T-SHIRT</h3>
+                            <h4><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>ADD TO CART</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="rate">
+                                    <h3>Pocket Tee</h3>
+                                    <p><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><span><i class="fa fa-star" aria-hidden="true"></i></span></p>
+                                    <h5>$250</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="s_product">
+                            <img src="{{ url_for('static', filename='img/shop/6.jpg') }}" alt="">
+                            <div class="s_overlay"></div>
+                            <h3>T-SHIRT</h3>
+                            <h4><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>ADD TO CART</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="rate">
+                                    <h3>Pocket Tee</h3>
+                                    <p><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><span><i class="fa fa-star" aria-hidden="true"></i></span></p>
+                                    <h5>$250</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="s_product">
+                            <img src="{{ url_for('static', filename='img/shop/9.jpg') }}" alt="">
+                            <div class="s_overlay"></div>
+                            <h3>T-SHIRT</h3>
+                            <h4><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>ADD TO CART</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="rate">
+                                    <h3>Pocket Tee</h3>
+                                    <p><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></p>
+                                    <h5>$250</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="s_product">
+                            <img src="{{ url_for('static', filename='img/shop/10.jpg') }}" alt="">
+                            <div class="s_overlay"></div>
+                            <h2>NEW!</h2>
+                            <h3>JACKET</h3>
+                            <h4><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>ADD TO CART</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="rate">
+                                    <h3>Pocket Tee</h3>
+                                    <p><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></p>
+                                    <h5>$250</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}
+
+{% endblock %}
